@@ -10,65 +10,69 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">RESTful Board Example</a>
-            </div>
-        
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">자유게시판</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a>사용자 이름</a></li>
-                    <li><a href="#">로그인</a></li>
-                </ul>
-            </div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">RESTful Board Example</a>
         </div>
-    </nav>
 
-    <div class="page-header">
-        <h1>게시글 제목</h1>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">자유게시판</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a>사용자 이름</a></li>
+                <li><a href="#">로그인</a></li>
+            </ul>
+        </div>
     </div>
+</nav>
 
-    <div class="input-group">
-        <p>
-            참고로 제 블로그는 Bootstrap3으로 만들어 졌기 떄문에, Bootstrap3 형식의 디자인으로 소개합니다.
-            그러나 Bootstrap3과 4에서 form-control은 거의 비슷하기 때문에 큰 차이는 없습니다.
-            
-            부트 스트랩 3.x 링크 - https://getbootstrap.com/docs/3.4/css/#forms
-            부트 스트랩 4.x 링크 - https://getbootstrap.com/docs/4.3/components/forms/
-            
-            사용 방법은 위 태그에서 class에 form-control를 넣으면 기본 형태가 나옵니다.
-            예를 들면 텍스트 박스에 
-        </p>
-    </div>
+<div class="page-header">
+    <h1>게시글 제목</h1>
+</div>
 
-    <div class="group">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <label>사용자A <small>2022-09-21 12:10</small></label>
-                <br>
-                <label>잘 놀다갑니다.</label>
-            </li>
-            <li class="list-group-item">
-                <label>사용자B <small>2022-09-21 12:18</small></label>
-                <br>
-                <label>잘 놀다갑니다.</label>
-            </li>
-        </ul>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="input-group">
-                <textarea style="resize: none; height: 100px;" class="form-control" placeholder="댓글을 입력하세요..."></textarea>
-                <span class="input-group-btn">
+<div class="input-group">
+    <p>
+        참고로 제 블로그는 Bootstrap3으로 만들어 졌기 떄문에, Bootstrap3 형식의 디자인으로 소개합니다.
+        그러나 Bootstrap3과 4에서 form-control은 거의 비슷하기 때문에 큰 차이는 없습니다.
+
+        부트 스트랩 3.x 링크 - https://getbootstrap.com/docs/3.4/css/#forms
+        부트 스트랩 4.x 링크 - https://getbootstrap.com/docs/4.3/components/forms/
+
+        사용 방법은 위 태그에서 class에 form-control를 넣으면 기본 형태가 나옵니다.
+        예를 들면 텍스트 박스에
+    </p>
+</div>
+
+<div class="group">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <label>사용자A <small>[2022-09-21 12:10]</small></label>
+            <a class="text-right">수정</a>
+            <a class="text-right">삭제</a>
+            <br>
+            <label>잘 놀다갑니다.</label>
+        </li>
+        <li class="list-group-item">
+            <label>사용자B <small>[2022-09-21 12:18]</small></label>
+            <a class="text-right">수정</a>
+            <a class="text-right">삭제</a>
+            <br>
+            <label>잘 놀다갑니다.</label>
+        </li>
+    </ul>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="input-group">
+            <textarea style="resize: none; height: 100px;" class="form-control" placeholder="댓글을 입력하세요..."></textarea>
+            <span class="input-group-btn">
                 <button style="width: 100px; height: 100px;" class="btn btn-default" type="button">등록</button>
                 </span>
-            </div>
         </div>
     </div>
+</div>
 
 </body>
 </html>
