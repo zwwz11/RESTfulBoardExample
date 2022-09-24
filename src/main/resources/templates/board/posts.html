@@ -1,60 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시판</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template/fragment/head :: common_head(~{::title})">
+    <title>posts</title>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">RESTful Board Example</a>
-            </div>
-        
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">자유게시판</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a>사용자 이름</a></li>
-                    <li><a href="#">로그인</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <header th:replace="template/fragment/header :: common_header" />
 
-      <div class="panel panel-default">
+    <div class="panel panel-default">
         <div class="panel-body">
             <h2>자유게시판</h2>
         </div>
+    </div>
       
-        <table class="table">
-            <thead>
-                <th>순서</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>시간</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>1</th>
-                    <th><a>게시판 첫글</a></th>
-                    <th>한솔</th>
-                    <th>2022-09-21</th>
-                </tr>
-                <tr>
-                    <th>2</th>
-                    <th><a>게시판 두번째글</a></th>
-                    <th>한솔</th>
-                    <th>2022-09-21</th>
-                </tr>
-            </tbody>
-        </table>
+    <table class="table">
+        <thead>
+            <th>순서</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>시간</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>1</th>
+                <th><a>게시판 첫글</a></th>
+                <th>한솔</th>
+                <th>2022-09-21</th>
+            </tr>
+            <tr>
+                <th>2</th>
+                <th><a>게시판 두번째글</a></th>
+                <th>한솔</th>
+                <th>2022-09-21</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <button class="btn-primary" th:onclick="|location.href='@{/board/reg}'|">게시글 등록</button>
     </div>
 </body>
 </html>
