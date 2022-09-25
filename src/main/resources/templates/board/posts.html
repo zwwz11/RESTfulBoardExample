@@ -20,23 +20,17 @@
             <th>시간</th>
         </thead>
         <tbody>
-            <tr>
-                <th>1</th>
-                <th><a>게시판 첫글</a></th>
-                <th>한솔</th>
-                <th>2022-09-21</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <th><a>게시판 두번째글</a></th>
-                <th>한솔</th>
-                <th>2022-09-21</th>
+            <tr th:each="post : ${posts}">
+                <th th:text="${post.postId}">게시글 번호</th>
+                <th><a th:text="${post.title}">게시글 제목</a></th>
+                <th th:text="${post.regUser}">게시글 등록한 사람</th>
+                <th th:text="${post.regTime}">게시글 생성 날짜/시간</th>
             </tr>
         </tbody>
     </table>
 
     <div>
-        <button class="btn-primary" th:onclick="|location.href='@{/board/reg}'|">게시글 등록</button>
+        <button class="btn-primary" th:onclick="|location.href='@{/board/reg/{boardId}(boardId=${boardId})}'|">게시글 등록</button>
     </div>
 </body>
 </html>
