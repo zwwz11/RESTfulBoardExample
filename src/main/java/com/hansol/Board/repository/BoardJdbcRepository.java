@@ -36,8 +36,11 @@ public class BoardJdbcRepository implements BoardRepository{
     }
 
     @Override
-    public List<BoardPost> getAllBoardPosts() {
-        return jdbcTemplate.query("SELECT * FROM TBL_BOARD_POST", boardPostRowMapper());
+    public List<BoardPost> getPostsByBoardId(Integer boardId) {
+        return jdbcTemplate.query("" +
+                "SELECT * " +
+                "FROM TBL_BOARD_POST " +
+                "WHERE BOARD_ID = '" + boardId + "'", boardPostRowMapper());
     }
 
     @Override
@@ -52,6 +55,29 @@ public class BoardJdbcRepository implements BoardRepository{
         param.put("REG_USER", "ADMIN");
         param.put("REG_TIME", LocalDateTime.now());
         Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(param));
+    }
+
+    @Override
+    public void updateBoardPost(BoardPost boardPost) {
+        jdbcTemplate.update("" +
+                "UPDATE TBL_BOARD_POST " +
+                "   SET TITLE   = ? " +
+                "     , CONTENT = ? " +
+                "WHERE BOARD_ID = ? " +
+                "  AND POST_ID  = ? ", boardPost.getTitle()
+                                    , boardPost.getContent()
+                                    , boardPost.getBoardId()
+                                    , boardPost.getPostId());
+    }
+
+    @Override
+    public BoardPost getPost(Integer boardId, Integer postId) {
+        return jdbcTemplate.query("" +
+                "SELECT * " +
+                "FROM TBL_BOARD_POST " +
+                "WHERE 1=1 " +
+                "AND BOARD_ID = '" + boardId + "' " +
+                "AND POST_ID = '" + postId + "' ", boardPostRowMapper()).get(0);
     }
 
     private RowMapper<BoardPost> boardPostRowMapper() {

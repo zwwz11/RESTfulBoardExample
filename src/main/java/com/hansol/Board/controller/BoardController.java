@@ -24,13 +24,13 @@ public class BoardController {
         return boardService.findAllBoards();
     }
 
-    @GetMapping("/posts/{boardId}")
+    @GetMapping("{boardId}/posts")
     public String getPosts(@PathVariable Integer boardId, Model model) {
-        model.addAttribute("posts", boardService.findAllBoardPosts());
+        model.addAttribute("posts", boardService.findPostsByBoardId(boardId));
         return "/board/posts";
     }
 
-    @GetMapping("/reg/{boardId}")
+    @GetMapping("/{boardId}/posts/reg")
     public String getPostReg(Model model, @PathVariable Integer boardId) {
         BoardPost boardPost = new BoardPost();
         boardPost.setBoardId(boardId);
@@ -38,13 +38,29 @@ public class BoardController {
         return "/board/post-reg";
     }
 
-    @PostMapping("/reg/{boardId}")
+    @PostMapping("/{boardId}/posts/reg")
     public String postPostReg(@ModelAttribute("post") BoardPost boardPost, @PathVariable Integer boardId) {
-        log.info("boardId = {}", boardId);
-        log.info("title = {}", boardPost.getTitle());
-        log.info("content = {}", boardPost.getContent());
         boardPost.setBoardId(boardId);
         boardService.joinBoardPost(boardPost);
-        return "redirect:/board/posts/{boardId}";
+        return "redirect:/board/{boardId}/posts";
+    }
+
+    @GetMapping("/{boardId}/posts/{postId}")
+    public String getPostEdit(Model model, @PathVariable Integer boardId, @PathVariable Integer postId) {
+        BoardPost boardPost = boardService.findPost(boardId, postId);
+        model.addAttribute("post", boardPost);
+        return "/board/post-edit";
+    }
+
+    @PutMapping("/{boardId}/posts/{postId}/edit")
+    public String putPostEdit(@ModelAttribute("post") BoardPost boardPost) {
+        boardService.editBoardPost(boardPost);
+        return "redirect:/board/{boardId}/posts";
+    }
+
+    @DeleteMapping("/{boardId}/posts/{postId}/edit")
+    public String deletePostEdit() {
+        log.info("삭제호출");
+        return "redirect:/board/{boardId}/posts";
     }
 }

@@ -21,12 +21,24 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public List<BoardPost> findAllBoardPosts() {
-        return boardRepository.getAllBoardPosts();
+    public List<BoardPost> findPostsByBoardId(Integer boardId) {
+        return boardRepository.getPostsByBoardId(boardId);
+    }
+
+    @Override
+    public BoardPost findPost(Integer boardId, Integer postId) {
+        return boardRepository.getPost(boardId, postId);
     }
 
     @Override
     public void joinBoardPost(BoardPost boardPost) {
         boardRepository.saveBoardPost(boardPost);
     }
+
+    @Override
+    public void editBoardPost(BoardPost boardPost) {
+        boardRepository.updateBoardPost(boardPost);
+    }
+
+
 }

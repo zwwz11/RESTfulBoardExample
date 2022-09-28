@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface BoardRepository {
     List<Board> getAllBoards();
-    List<BoardPost> getAllBoardPosts();
+    List<BoardPost> getPostsByBoardId(Integer boardId);
+    BoardPost getPost(Integer boardId, Integer postId);
     void saveBoardPost(BoardPost boardPost);
+    void updateBoardPost(BoardPost boardPost);
 }

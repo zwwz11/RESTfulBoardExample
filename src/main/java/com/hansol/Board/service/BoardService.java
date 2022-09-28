@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface BoardService {
     List<Board> findAllBoards();
-    List<BoardPost> findAllBoardPosts();
+    List<BoardPost> findPostsByBoardId(Integer boardId);
+    BoardPost findPost(Integer boardId, Integer postId);
     void joinBoardPost(BoardPost boardPost);
+    void editBoardPost(BoardPost boardPost);
 }

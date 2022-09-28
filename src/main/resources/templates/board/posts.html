@@ -22,7 +22,7 @@
         <tbody>
             <tr th:each="post : ${posts}">
                 <th th:text="${post.postId}">게시글 번호</th>
-                <th><a th:text="${post.title}">게시글 제목</a></th>
+                <th><a th:href="@{/board/{boardId}/posts/{postId}(boardId=${boardId}, postId=${post.postId})}" th:text="${post.title}">게시글 제목</a></th>
                 <th th:text="${post.regUser}">게시글 등록한 사람</th>
                 <th th:text="${post.regTime}">게시글 생성 날짜/시간</th>
             </tr>
@@ -30,7 +30,7 @@
     </table>
 
     <div>
-        <button class="btn-primary" th:onclick="|location.href='@{/board/reg/{boardId}(boardId=${boardId})}'|">게시글 등록</button>
+        <button class="btn-primary" th:onclick="|location.href='@{/board/{boardId}/posts/reg(boardId=${boardId})}'|">게시글 등록</button>
     </div>
 </body>
 </html>
