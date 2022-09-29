@@ -52,15 +52,15 @@ public class BoardController {
         return "/board/post-edit";
     }
 
-    @PutMapping("/{boardId}/posts/{postId}/edit")
+    @PutMapping("/{boardId}/posts/{postId}")
     public String putPostEdit(@ModelAttribute("post") BoardPost boardPost) {
         boardService.editBoardPost(boardPost);
         return "redirect:/board/{boardId}/posts";
     }
 
-    @DeleteMapping("/{boardId}/posts/{postId}/edit")
-    public String deletePostEdit() {
-        log.info("삭제호출");
+    @DeleteMapping("/{boardId}/posts/{postId}")
+    public String deletePostEdit(@PathVariable Integer boardId, @PathVariable Integer postId) {
+        boardService.removeBoardPost(boardId, postId);
         return "redirect:/board/{boardId}/posts";
     }
 }

@@ -71,6 +71,15 @@ public class BoardJdbcRepository implements BoardRepository{
     }
 
     @Override
+    public void deleteBoardPost(Integer boardId, Integer postId) {
+        jdbcTemplate.update("" +
+                "DELETE FROM TBL_BOARD_POST " +
+                "WHERE 1=1 " +
+                "AND BOARD_ID = ? " +
+                "AND POST_ID = ? ", boardId, postId);
+    }
+
+    @Override
     public BoardPost getPost(Integer boardId, Integer postId) {
         return jdbcTemplate.query("" +
                 "SELECT * " +

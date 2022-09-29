@@ -11,4 +11,5 @@ public interface BoardService {
     BoardPost findPost(Integer boardId, Integer postId);
     void joinBoardPost(BoardPost boardPost);
     void editBoardPost(BoardPost boardPost);
+    void removeBoardPost(Integer boardId, Integer postId);
 }

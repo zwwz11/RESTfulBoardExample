@@ -6,7 +6,7 @@
 <body>
     <header th:replace="template/fragment/header :: common_header"/>
 
-    <form th:method="put" th:action="@{/board/{boardId}/posts/{postId}/edit(boardId=${boardId}, postId=${post.postId})}" th:object="${post}">
+    <form th:method="put" th:action="@{/board/{boardId}/posts/{postId}(boardId=${boardId}, postId=${post.postId})}" th:object="${post}">
         <div class="row">
             <div class="col-lg-12">
                 <div class="form-group">
@@ -23,6 +23,11 @@
                     <input class="btn btn-primary" type="submit" value="수정">
                 </div>
             </div>
+        </div>
+    </form>
+    <form th:method="delete" th:action="@{/board/{boardId}/posts/{postId}(boardId=${boardId}, postId=${post.postId})}">
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="삭제">
         </div>
     </form>
 

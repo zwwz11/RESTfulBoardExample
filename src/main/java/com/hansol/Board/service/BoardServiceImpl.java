@@ -40,5 +40,8 @@ public class BoardServiceImpl implements BoardService{
         boardRepository.updateBoardPost(boardPost);
     }
 
-
+    @Override
+    public void removeBoardPost(Integer boardId, Integer postId) {
+        boardRepository.deleteBoardPost(boardId, postId);
+    }
 }

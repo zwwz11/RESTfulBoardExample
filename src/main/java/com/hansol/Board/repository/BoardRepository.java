@@ -11,4 +11,5 @@ public interface BoardRepository {
     BoardPost getPost(Integer boardId, Integer postId);
     void saveBoardPost(BoardPost boardPost);
     void updateBoardPost(BoardPost boardPost);
+    void deleteBoardPost(Integer boardId, Integer postId);
 }
