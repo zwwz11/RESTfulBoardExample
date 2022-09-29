@@ -19,7 +19,6 @@ public class HomeController {
 
     @ModelAttribute("boards")
     private List<Board> boards() {
-        log.info("boards = {}", boardService.findAllBoards().stream().count());
         return boardService.findAllBoards();
     }
 
